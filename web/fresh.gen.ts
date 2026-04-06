@@ -4,9 +4,21 @@
 
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
+import * as $api_auth_login from "./routes/api/auth/login.ts";
+import * as $api_auth_logout from "./routes/api/auth/logout.ts";
+import * as $api_auth_me from "./routes/api/auth/me.ts";
+import * as $api_auth_signup from "./routes/api/auth/signup.ts";
 import * as $api_joke from "./routes/api/joke.ts";
+import * as $api_messages_index from "./routes/api/messages/index.ts";
+import * as $api_sessions_id_ from "./routes/api/sessions/[id].ts";
+import * as $api_sessions_id_messages from "./routes/api/sessions/[id]/messages.ts";
+import * as $api_sessions_index from "./routes/api/sessions/index.ts";
+import * as $chat from "./routes/chat.tsx";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
+import * as $login from "./routes/login.tsx";
+import * as $signup from "./routes/signup.tsx";
+import * as $ChatInterface from "./islands/ChatInterface.tsx";
 import * as $Counter from "./islands/Counter.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
@@ -14,11 +26,23 @@ const manifest = {
   routes: {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
+    "./routes/api/auth/login.ts": $api_auth_login,
+    "./routes/api/auth/logout.ts": $api_auth_logout,
+    "./routes/api/auth/me.ts": $api_auth_me,
+    "./routes/api/auth/signup.ts": $api_auth_signup,
     "./routes/api/joke.ts": $api_joke,
+    "./routes/api/messages/index.ts": $api_messages_index,
+    "./routes/api/sessions/[id].ts": $api_sessions_id_,
+    "./routes/api/sessions/[id]/messages.ts": $api_sessions_id_messages,
+    "./routes/api/sessions/index.ts": $api_sessions_index,
+    "./routes/chat.tsx": $chat,
     "./routes/greet/[name].tsx": $greet_name_,
     "./routes/index.tsx": $index,
+    "./routes/login.tsx": $login,
+    "./routes/signup.tsx": $signup,
   },
   islands: {
+    "./islands/ChatInterface.tsx": $ChatInterface,
     "./islands/Counter.tsx": $Counter,
   },
   baseUrl: import.meta.url,
