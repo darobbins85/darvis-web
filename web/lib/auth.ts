@@ -79,6 +79,7 @@ async function createToken(userId: string): Promise<string> {
     { alg: "HS256", typ: "JWT" },
     { 
       userId, 
+      jti: crypto.randomUUID(), // Unique identifier for each token
       exp: Math.floor(Date.now() / 1000) + (24 * 60 * 60) // 24 hours
     },
     jwtKey
