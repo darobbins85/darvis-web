@@ -8,6 +8,7 @@ import * as $api_auth_login from "./routes/api/auth/login.ts";
 import * as $api_auth_logout from "./routes/api/auth/logout.ts";
 import * as $api_auth_me from "./routes/api/auth/me.ts";
 import * as $api_auth_signup from "./routes/api/auth/signup.ts";
+import * as $api_chat from "./routes/api/chat.ts";
 import * as $api_joke from "./routes/api/joke.ts";
 import * as $api_messages_index from "./routes/api/messages/index.ts";
 import * as $api_sessions_id_ from "./routes/api/sessions/[id].ts";
@@ -30,6 +31,7 @@ const manifest = {
     "./routes/api/auth/logout.ts": $api_auth_logout,
     "./routes/api/auth/me.ts": $api_auth_me,
     "./routes/api/auth/signup.ts": $api_auth_signup,
+    "./routes/api/chat.ts": $api_chat,
     "./routes/api/joke.ts": $api_joke,
     "./routes/api/messages/index.ts": $api_messages_index,
     "./routes/api/sessions/[id].ts": $api_sessions_id_,

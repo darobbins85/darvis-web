@@ -105,9 +105,10 @@ export default function ChatInterface(props: ChatInterfaceProps) {
     try {
       loading.value = true;
       error.value = null;
+      inputText.value = ""; // Clear input immediately
 
-      // Send message
-      const response = await fetch("/api/messages", {
+      // Send message and get streaming AI response
+      const response = await fetch("/api/chat", {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${props.authToken}`,
@@ -119,15 +120,81 @@ export default function ChatInterface(props: ChatInterfaceProps) {
         }),
       });
 
-      if (response.ok) {
-        const data = await response.json();
-        messages.value = [...messages.value, data.message];
-        inputText.value = "";
-
-        // TODO: Trigger AI response (Phase 2 next step)
-      } else {
+      if (!response.ok) {
         const data = await response.json();
         error.value = data.error || "Failed to send message";
+        return;
+      }
+
+      // Process Server-Sent Events stream
+      const reader = response.body?.getReader();
+      if (!reader) {
+        error.value = "Failed to read response stream";
+        return;
+      }
+
+      const decoder = new TextDecoder();
+      let buffer = "";
+      let aiMessageContent = "";
+      let aiMessageId = "";
+
+      while (true) {
+        const { done, value } = await reader.read();
+
+        if (done) break;
+
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split("\n");
+        buffer = lines.pop() || "";
+
+        for (const line of lines) {
+          const trimmed = line.trim();
+          if (!trimmed || !trimmed.startsWith("data: ")) continue;
+
+          try {
+            const data = JSON.parse(trimmed.slice(6));
+
+            if (data.type === "user_message") {
+              // Add user message to UI
+              messages.value = [...messages.value, data.message];
+            } else if (data.type === "ai_chunk") {
+              // Accumulate AI response chunks
+              aiMessageContent += data.content;
+
+              // Update or add streaming message
+              if (!aiMessageId) {
+                // Create temporary streaming message
+                const streamingMessage = {
+                  id: "streaming",
+                  sessionId: currentSession.value!.id,
+                  role: "assistant" as const,
+                  content: aiMessageContent,
+                  createdAt: new Date(),
+                };
+                messages.value = [...messages.value, streamingMessage];
+                aiMessageId = "streaming";
+              } else {
+                // Update streaming message
+                messages.value = messages.value.map((msg) =>
+                  msg.id === "streaming"
+                    ? { ...msg, content: aiMessageContent }
+                    : msg
+                );
+              }
+            } else if (data.type === "ai_complete") {
+              // Replace streaming message with final message
+              messages.value = messages.value.map((msg) =>
+                msg.id === "streaming" ? data.message : msg
+              );
+              aiMessageContent = "";
+              aiMessageId = "";
+            } else if (data.type === "error") {
+              error.value = data.error;
+            }
+          } catch (err) {
+            console.error("Failed to parse SSE:", trimmed, err);
+          }
+        }
       }
     } catch (err) {
       error.value = "Failed to send message";
