@@ -1,7 +1,14 @@
 {
   "workspace": ["./web"],
+  "imports": {
+    "preact": "https://esm.sh/preact@10.22.0",
+    "preact/": "https://esm.sh/preact@10.22.0/",
+    "preact/hooks": "https://esm.sh/preact@10.22.0/hooks",
+    "preact-render-to-string": "https://esm.sh/preact-render-to-string@6.3.1"
+  },
   "tasks": {
     "dev": "cd web && ~/.deno/bin/deno task dev",
+    "start": "cd web && ~/.deno/bin/deno run -A --unstable-kv main.ts",
     "test": "~/.deno/bin/deno test --allow-all --unstable-kv tests/",
     "test:coverage": "~/.deno/bin/deno test --allow-all --unstable-kv --coverage=coverage tests/",
     "test:watch": "~/.deno/bin/deno test --allow-all --unstable-kv --watch tests/",
