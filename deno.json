@@ -1,0 +1,25 @@
+{
+  "workspace": ["./web"],
+  "tasks": {
+    "dev": "cd web && ~/.deno/bin/deno task dev",
+    "test": "~/.deno/bin/deno test --allow-all tests/",
+    "test:coverage": "~/.deno/bin/deno test --allow-all --coverage=coverage tests/",
+    "test:watch": "~/.deno/bin/deno test --allow-all --watch tests/",
+    "fmt": "~/.deno/bin/deno fmt",
+    "fmt:check": "~/.deno/bin/deno fmt --check",
+    "lint": "~/.deno/bin/deno lint"
+  },
+  "fmt": {
+    "useTabs": false,
+    "lineWidth": 100,
+    "indentWidth": 2,
+    "semiColons": true,
+    "singleQuote": false,
+    "proseWrap": "preserve"
+  },
+  "lint": {
+    "rules": {
+      "tags": ["recommended"]
+    }
+  }
+}
