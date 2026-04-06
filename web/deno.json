@@ -1,16 +1,36 @@
 {
+  "lock": false,
   "tasks": {
+    "check": "~/.deno/bin/deno fmt --check && ~/.deno/bin/deno lint && ~/.deno/bin/deno check **/*.ts && ~/.deno/bin/deno check **/*.tsx",
+    "cli": "echo \"import '\\$fresh/src/dev/cli.ts'\" | ~/.deno/bin/deno run --unstable -A -",
+    "manifest": "~/.deno/bin/deno task cli manifest $(pwd)",
     "dev": "~/.deno/bin/deno run -A --watch=static/,routes/ dev.ts",
-    "build": "~/.deno/bin/deno run -A build.ts",
-    "preview": "~/.deno/bin/deno run -A main.ts"
+    "start": "~/.deno/bin/deno run -A --watch=static/,routes/ dev.ts",
+    "build": "~/.deno/bin/deno run -A dev.ts build",
+    "preview": "~/.deno/bin/deno run -A main.ts",
+    "update": "~/.deno/bin/deno run -A -r https://fresh.deno.dev/update ."
   },
+  "lint": {
+    "rules": {
+      "tags": [
+        "fresh",
+        "recommended"
+      ]
+    }
+  },
+  "exclude": [
+    "**/_fresh/*"
+  ],
   "imports": {
-    "$fresh/": "https://deno.land/x/fresh@1.6.1/",
-    "preact": "https://esm.sh/preact@10.19.2",
-    "preact/": "https://esm.sh/preact@10.19.2/",
-    "@preact/signals": "https://esm.sh/*@preact/signals@1.2.1",
-    "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.0",
-    "$std/": "https://deno.land/std@0.208.0/",
+    "$fresh/": "https://deno.land/x/fresh@1.7.3/",
+    "preact": "https://esm.sh/preact@10.22.0",
+    "preact/": "https://esm.sh/preact@10.22.0/",
+    "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",
+    "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1",
+    "tailwindcss": "npm:tailwindcss@3.4.1",
+    "tailwindcss/": "npm:/tailwindcss@3.4.1/",
+    "tailwindcss/plugin": "npm:/tailwindcss@3.4.1/plugin.js",
+    "$std/": "https://deno.land/std@0.216.0/",
     "bcrypt": "https://deno.land/x/bcrypt@v0.4.1/mod.ts",
     "djwt": "https://deno.land/x/djwt@v3.0.1/mod.ts"
   },
@@ -25,5 +45,6 @@
     "strictPropertyInitialization": true,
     "noImplicitThis": true,
     "alwaysStrict": true
-  }
+  },
+  "nodeModulesDir": true
 }

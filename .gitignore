@@ -1,48 +1,5 @@
-# Deno
-.deno/
-deno.lock
-
-# Fresh build
-_fresh/
-static/_fresh/
-
-# Coverage
-coverage/
-
-# Logs
-*.log
-logs/
-
-# Environment
 .env
-.env.local
-
-# OS
-.DS_Store
-Thumbs.db
-*.swp
-*.swo
-
-# IDE
-.vscode/
-.idea/
-*.sublime-*
-
-# Testing
-playwright-report/
-test-results/
-
-# Build artifacts
-dist/
-build/
-
-# Dependencies
-node_modules/
-
-# Deno KV (local development)
 *.db
-*.sqlite
-
-# Tauri
-desktop/src-tauri/target/
-desktop/src-tauri/Cargo.lock
+.darvis/
+*.log
+.DS_Store

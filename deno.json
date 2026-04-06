@@ -1,25 +1,17 @@
 {
-  "workspace": ["./web"],
   "tasks": {
-    "dev": "cd web && ~/.deno/bin/deno task dev",
-    "test": "~/.deno/bin/deno test --allow-all tests/",
-    "test:coverage": "~/.deno/bin/deno test --allow-all --coverage=coverage tests/",
-    "test:watch": "~/.deno/bin/deno test --allow-all --watch tests/",
-    "fmt": "~/.deno/bin/deno fmt",
-    "fmt:check": "~/.deno/bin/deno fmt --check",
-    "lint": "~/.deno/bin/deno lint"
+    "start": "deno run --allow-net --allow-read --allow-write --allow-env --allow-run main.ts",
+    "dev": "deno run --watch --allow-net --allow-read --allow-write --allow-env --allow-run main.ts",
+    "test": "deno test --allow-net --allow-read --allow-write --allow-env --allow-run tests/"
   },
-  "fmt": {
-    "useTabs": false,
-    "lineWidth": 100,
-    "indentWidth": 2,
-    "semiColons": true,
-    "singleQuote": false,
-    "proseWrap": "preserve"
-  },
-  "lint": {
-    "rules": {
-      "tags": ["recommended"]
-    }
+  "imports": {
+    "hono": "jsr:@hono/hono@^4",
+    "hono/": "jsr:@hono/hono@^4/",
+    "@db/sqlite": "jsr:@db/sqlite@^0.12",
+    "bcryptjs": "npm:bcryptjs@^2.4.3",
+    "@std/path": "jsr:@std/path@^1",
+    "@std/dotenv": "jsr:@std/dotenv@^0.225",
+    "@std/assert": "jsr:@std/assert@^1",
+    "@std/crypto": "jsr:@std/crypto@^1"
   }
 }
