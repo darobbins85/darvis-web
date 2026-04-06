@@ -1,0 +1,22 @@
+{
+  "version": "5",
+  "specifiers": {
+    "npm:bcryptjs@^2.4.3": "2.4.3"
+  },
+  "npm": {
+    "bcryptjs@2.4.3": {
+      "integrity": "sha512-V/Hy/X9Vt7f3BbPJEi8BdVFMByHi+jNXrYkW3huaybV/kQ0KJg0Y6PkEMbn+zeT+i+SiKZ/HMqJGIIt4LZDqNQ=="
+    }
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@db/sqlite@0.12",
+      "jsr:@hono/hono@4",
+      "jsr:@std/assert@1",
+      "jsr:@std/crypto@1",
+      "jsr:@std/dotenv@0.225",
+      "jsr:@std/path@1",
+      "npm:bcryptjs@^2.4.3"
+    ]
+  }
+}
