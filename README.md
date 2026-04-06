@@ -4,16 +4,19 @@ Modern TypeScript/Deno web application for Darvis Voice Assistant.
 
 ## Status
 
-🚧 **Phase 1: Foundation** - In Progress
+✅ **Phase 1: Foundation** - COMPLETE (70/70 tests passing)
 
-## Features (In Development)
+## Features
 
-- ⏳ Fresh framework with Tailwind CSS
-- ⏳ Deno KV database layer
-- ⏳ JWT authentication system
-- ⏳ API routes for auth
-- ⏳ 100% test coverage
-- ⏳ CI/CD pipeline
+- ✅ Fresh framework with Tailwind CSS configured
+- ✅ Deno KV database layer with full test coverage
+- ✅ JWT authentication system with bcrypt password hashing
+- ✅ RESTful API routes for authentication
+- ✅ TypeScript strict mode with comprehensive types
+- ✅ GitHub Actions CI/CD pipeline
+- ⏳ Chat interface (Phase 2)
+- ⏳ AI integration (Phase 2)
+- ⏳ Voice input/output (Phase 3)
 
 ## Prerequisites
 
@@ -27,11 +30,30 @@ Modern TypeScript/Deno web application for Darvis Voice Assistant.
 git clone git@github.com:darobbins85/darvis-web.git
 cd darvis-web
 
-# Development server (after Fresh is set up)
+# Set up environment variables
+cp .env.example .env
+# Edit .env and add your JWT_SECRET
+
+# Run tests
+~/.deno/bin/deno task test
+
+# Development server
 ~/.deno/bin/deno task dev
 
-# Run tests (after tests are written)
-~/.deno/bin/deno task test
+# Format code
+~/.deno/bin/deno task fmt
+
+# Lint code
+~/.deno/bin/deno task lint
+```
+
+## Environment Variables
+
+Create a `.env` file in the project root:
+
+```env
+JWT_SECRET=your-secret-key-here-min-32-characters
+DENO_KV_URL=  # Leave empty for local development
 ```
 
 ## Project Structure
@@ -66,8 +88,14 @@ darvis-web/
 
 ## Roadmap
 
-- 🚧 **Phase 1:** Foundation (Current)
-- ⏳ **Phase 2:** Core Features (Chat, AI integration)
+- ✅ **Phase 1:** Foundation - COMPLETE
+  - Fresh framework setup
+  - Deno KV database layer
+  - JWT authentication
+  - API routes
+  - CI/CD pipeline
+  - 70/70 tests passing
+- 🚧 **Phase 2:** Core Features (Next - Chat UI, AI integration)
 - ⏳ **Phase 3:** Voice Features (Web Speech API)
 - ⏳ **Phase 4:** App Launcher
 - ⏳ **Phase 5:** Visual Design (Eye glow effect)
