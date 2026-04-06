@@ -6,7 +6,10 @@
     "preact/hooks": "https://esm.sh/preact@10.22.0/hooks",
     "preact-render-to-string": "https://esm.sh/preact-render-to-string@6.3.1",
     "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",
-    "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1"
+    "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1",
+    "tailwindcss": "npm:tailwindcss@3.4.1",
+    "tailwindcss/": "npm:/tailwindcss@3.4.1/",
+    "tailwindcss/plugin": "npm:/tailwindcss@3.4.1/plugin.js"
   },
   "tasks": {
     "dev": "cd web && ~/.deno/bin/deno task dev",
