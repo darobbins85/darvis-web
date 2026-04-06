@@ -1,6 +1,6 @@
 import { Handlers } from "$fresh/server.ts";
 import { getCurrentUser } from "../../../../lib/auth.ts";
-import { getMessages, getSession } from "../../../../lib/db.ts";
+import { getSessionById, getSessionMessages } from "../../../../lib/db.ts";
 import type { ApiResponse } from "../../../../types/index.ts";
 
 // GET /api/sessions/:id/messages - Get messages for session
@@ -20,7 +20,7 @@ export const handler: Handlers = {
 
     // Get session by ID
     const sessionId = ctx.params.id;
-    const session = await getSession(sessionId);
+    const session = await getSessionById(sessionId);
 
     if (!session) {
       return new Response(
@@ -38,7 +38,7 @@ export const handler: Handlers = {
     }
 
     // Get messages for session
-    const messages = await getMessages(sessionId);
+    const messages = await getSessionMessages(sessionId);
 
     const response: ApiResponse = { messages };
     return new Response(JSON.stringify(response), {

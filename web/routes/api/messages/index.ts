@@ -1,6 +1,6 @@
 import { Handlers } from "$fresh/server.ts";
 import { getCurrentUser } from "../../../lib/auth.ts";
-import { addMessage, getSession } from "../../../lib/db.ts";
+import { addMessage, getSessionById } from "../../../lib/db.ts";
 import type { ApiResponse } from "../../../types/index.ts";
 
 // POST /api/messages - Create new message
@@ -45,7 +45,7 @@ export const handler: Handlers = {
     }
 
     // Verify session exists and belongs to user
-    const session = await getSession(body.sessionId);
+    const session = await getSessionById(body.sessionId);
 
     if (!session) {
       return new Response(

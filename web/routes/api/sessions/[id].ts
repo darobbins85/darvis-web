@@ -1,6 +1,6 @@
 import { Handlers } from "$fresh/server.ts";
 import { getCurrentUser } from "../../../lib/auth.ts";
-import { deleteSession, getSession, updateSession } from "../../../lib/db.ts";
+import { deleteSession, getSessionById, updateSessionName } from "../../../lib/db.ts";
 import type { ApiResponse } from "../../../types/index.ts";
 
 // GET /api/sessions/:id - Get session by ID
@@ -22,7 +22,7 @@ export const handler: Handlers = {
 
     // Get session by ID
     const sessionId = ctx.params.id;
-    const session = await getSession(sessionId);
+    const session = await getSessionById(sessionId);
 
     if (!session) {
       return new Response(
@@ -61,7 +61,7 @@ export const handler: Handlers = {
 
     // Get session by ID
     const sessionId = ctx.params.id;
-    const session = await getSession(sessionId);
+    const session = await getSessionById(sessionId);
 
     if (!session) {
       return new Response(
@@ -98,7 +98,7 @@ export const handler: Handlers = {
     }
 
     // Update session
-    const updatedSession = await updateSession(sessionId, body.name.trim());
+    const updatedSession = await updateSessionName(sessionId, body.name.trim());
 
     if (!updatedSession) {
       return new Response(
@@ -129,7 +129,7 @@ export const handler: Handlers = {
 
     // Get session by ID
     const sessionId = ctx.params.id;
-    const session = await getSession(sessionId);
+    const session = await getSessionById(sessionId);
 
     if (!session) {
       return new Response(
