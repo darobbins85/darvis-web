@@ -1,0 +1,327 @@
+{
+  "scriptId": "307",
+  "url": "file:///home/david/Code/github/darobbins85/darvis-web/web/lib/db.ts",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [
+        {
+          "startOffset": 0,
+          "endOffset": 7784,
+          "count": 1
+        }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "initDb",
+      "ranges": [
+        {
+          "startOffset": 683,
+          "endOffset": 827,
+          "count": 6
+        }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "getDb",
+      "ranges": [
+        {
+          "startOffset": 891,
+          "endOffset": 1012,
+          "count": 0
+        }
+      ],
+      "isBlockCoverage": false
+    },
+    {
+      "functionName": "closeDb",
+      "ranges": [
+        {
+          "startOffset": 1057,
+          "endOffset": 1117,
+          "count": 6
+        }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "createUser",
+      "ranges": [
+        {
+          "startOffset": 1381,
+          "endOffset": 1952,
+          "count": 7
+        },
+        {
+          "startOffset": 1882,
+          "endOffset": 1935,
+          "count": 2
+        },
+        {
+          "startOffset": 1935,
+          "endOffset": 1951,
+          "count": 5
+        }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "getUserByUsername",
+      "ranges": [
+        {
+          "startOffset": 1992,
+          "endOffset": 2270,
+          "count": 3
+        },
+        {
+          "startOffset": 2133,
+          "endOffset": 2145,
+          "count": 1
+        },
+        {
+          "startOffset": 2145,
+          "endOffset": 2269,
+          "count": 2
+        }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "getUserById",
+      "ranges": [
+        {
+          "startOffset": 2304,
+          "endOffset": 2426,
+          "count": 2
+        }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "createSession",
+      "ranges": [
+        {
+          "startOffset": 2716,
+          "endOffset": 3176,
+          "count": 5
+        },
+        {
+          "startOffset": 2928,
+          "endOffset": 2954,
+          "count": 2
+        }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "getUserSessions",
+      "ranges": [
+        {
+          "startOffset": 3260,
+          "endOffset": 3764,
+          "count": 12
+        },
+        {
+          "startOffset": 3444,
+          "endOffset": 3646,
+          "count": 21
+        }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [
+        {
+          "startOffset": 3707,
+          "endOffset": 3760,
+          "count": 12
+        }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "getSessionById",
+      "ranges": [
+        {
+          "startOffset": 3801,
+          "endOffset": 3935,
+          "count": 18
+        }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "updateSessionName",
+      "ranges": [
+        {
+          "startOffset": 3974,
+          "endOffset": 4243,
+          "count": 2
+        },
+        {
+          "startOffset": 4093,
+          "endOffset": 4242,
+          "count": 1
+        }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "updateSessionAiId",
+      "ranges": [
+        {
+          "startOffset": 4296,
+          "endOffset": 4563,
+          "count": 1
+        },
+        {
+          "startOffset": 4422,
+          "endOffset": 4429,
+          "count": 0
+        }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "deleteSession",
+      "ranges": [
+        {
+          "startOffset": 4618,
+          "endOffset": 5193,
+          "count": 3
+        },
+        {
+          "startOffset": 4727,
+          "endOffset": 4740,
+          "count": 1
+        },
+        {
+          "startOffset": 4740,
+          "endOffset": 4940,
+          "count": 2
+        },
+        {
+          "startOffset": 4940,
+          "endOffset": 4977,
+          "count": 5
+        },
+        {
+          "startOffset": 4977,
+          "endOffset": 5192,
+          "count": 2
+        }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "getNextSessionNumber",
+      "ranges": [
+        {
+          "startOffset": 5238,
+          "endOffset": 5365,
+          "count": 5
+        }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "addMessage",
+      "ranges": [
+        {
+          "startOffset": 5635,
+          "endOffset": 6267,
+          "count": 5
+        },
+        {
+          "startOffset": 6150,
+          "endOffset": 6247,
+          "count": 0
+        }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "getSessionMessages",
+      "ranges": [
+        {
+          "startOffset": 6354,
+          "endOffset": 6718,
+          "count": 4
+        },
+        {
+          "startOffset": 6541,
+          "endOffset": 6578,
+          "count": 9
+        }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [
+        {
+          "startOffset": 6661,
+          "endOffset": 6714,
+          "count": 12
+        }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "createAuthSession",
+      "ranges": [
+        {
+          "startOffset": 6968,
+          "endOffset": 7217,
+          "count": 2
+        }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "getAuthSession",
+      "ranges": [
+        {
+          "startOffset": 7315,
+          "endOffset": 7636,
+          "count": 3
+        },
+        {
+          "startOffset": 7443,
+          "endOffset": 7455,
+          "count": 2
+        },
+        {
+          "startOffset": 7455,
+          "endOffset": 7521,
+          "count": 1
+        },
+        {
+          "startOffset": 7521,
+          "endOffset": 7611,
+          "count": 0
+        },
+        {
+          "startOffset": 7611,
+          "endOffset": 7635,
+          "count": 1
+        }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "deleteAuthSession",
+      "ranges": [
+        {
+          "startOffset": 7684,
+          "endOffset": 7783,
+          "count": 1
+        }
+      ],
+      "isBlockCoverage": true
+    }
+  ]
+}

@@ -118,6 +118,7 @@ Deno.test("Database - Session Operations", async (t) => {
   });
 
   await t.step("should create session with custom name", async () => {
+    await new Promise(resolve => setTimeout(resolve, 5)); // Ensure different timestamp
     const session = await createSession(user.id, "Custom Session Name");
     
     assertEquals(session.name, "Custom Session Name");
@@ -125,6 +126,7 @@ Deno.test("Database - Session Operations", async (t) => {
   });
 
   await t.step("should auto-increment session numbers", async () => {
+    await new Promise(resolve => setTimeout(resolve, 5)); // Ensure different timestamp
     const session3 = await createSession(user.id);
     assertEquals(session3.name, "Chat 3");
   });
@@ -229,6 +231,7 @@ Deno.test("Database - Message Operations", async (t) => {
   });
 
   await t.step("should add assistant message", async () => {
+    await new Promise(resolve => setTimeout(resolve, 2)); // Ensure different timestamp
     const message = await addMessage(session.id, "assistant", "Hello! How can I help?");
     
     assertEquals(message.role, "assistant");
@@ -236,8 +239,10 @@ Deno.test("Database - Message Operations", async (t) => {
   });
 
   await t.step("should get messages ordered by createdAt", async () => {
-    // Add more messages
+    // Add more messages with small delays to ensure timestamp order
+    await new Promise(resolve => setTimeout(resolve, 2));
     await addMessage(session.id, "user", "What is 2+2?");
+    await new Promise(resolve => setTimeout(resolve, 2));
     await addMessage(session.id, "assistant", "2+2 equals 4");
     
     const messages = await getSessionMessages(session.id);
